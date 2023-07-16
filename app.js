@@ -24,17 +24,32 @@ function getUserChoice() {
     console.log("The biggest error you have ever made");
   }
 }
+let computerSelection = getComputerChoice();
+let playerSelection = getUserChoice();
+function playRound() {
+  if (playerSelection == computerSelection) {
+    console.log("The Values are equal play again");
+  } else if (playerSelection == 0 && computerSelection == 1) {
+    console.log("The computer wins because paper covers rock");
+  } else if (playerSelection == 0 && computerSelection == 2) {
+    console.log("The Human wins because rock crushes scissors");
+  } else if (playerSelection == 1 && computerSelection == 0) {
+    console.log("The human wins because paper covers rock");
+  } else if (playerSelection == 1 && computerSelection == 2) {
+    console.log("the computer wins because scissors cut paper");
+  } else if (playerSelection == 2 && computerSelection == 1) {
+    console.log("the human wins because scissors cut paper");
+  } else if (playerSelection == 2 && computerSelection == 1) {
+    console.log("computer wins because rock crushes scissors");
+  } else {
+    console.log("there is an error!");
+  }
+}
 
-computerSelection = getComputerChoice();
-playerSelection = getUserChoice();
-
-console.log(typeof arrayOfChoices[computerSelection]);
-console.log(typeof arrayOfChoices[playerSelection]);
+console.log(computerSelection);
+console.log(playerSelection);
 
 console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
 console.log("the player selection is: ", arrayOfChoices[playerSelection]);
 
-// function playRound(playerSelection, computerSelection) {
-//     if
-// }
-// playRound();
+playRound();
