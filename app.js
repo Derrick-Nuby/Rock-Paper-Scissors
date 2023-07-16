@@ -46,8 +46,8 @@ function playRound() {
   }
 }
 
-console.log(computerSelection);
-console.log(playerSelection);
+// console.log(computerSelection);
+// console.log(playerSelection);
 
 console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
 console.log("the player selection is: ", arrayOfChoices[playerSelection]);
