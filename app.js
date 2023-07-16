@@ -26,24 +26,35 @@ function getUserChoice() {
 }
 let computerSelection = getComputerChoice();
 let playerSelection = getUserChoice();
+
 function playRound() {
+  let humanScore = 0;
+  let computerScore = 0;
   if (playerSelection == computerSelection) {
     console.log("The Values are equal play again");
   } else if (playerSelection == 0 && computerSelection == 1) {
     console.log("The computer wins because paper covers rock");
+    computerScore = computerScore + 1;
   } else if (playerSelection == 0 && computerSelection == 2) {
     console.log("The Human wins because rock crushes scissors");
+    humanScore = humanScore + 1;
   } else if (playerSelection == 1 && computerSelection == 0) {
     console.log("The human wins because paper covers rock");
+    humanScore = humanScore + 1;
   } else if (playerSelection == 1 && computerSelection == 2) {
     console.log("the computer wins because scissors cut paper");
+    computerScore = computerScore + 1;
   } else if (playerSelection == 2 && computerSelection == 1) {
     console.log("the human wins because scissors cut paper");
+    humanScore = humanScore + 1;
   } else if (playerSelection == 2 && computerSelection == 1) {
     console.log("computer wins because rock crushes scissors");
+    computerScore = computerScore + 1;
   } else {
     console.log("there is an error!");
   }
+  console.log("The computer score is: ", computerScore);
+  console.log("The human score is: ", humanScore);
 }
 
 // console.log(computerSelection);
