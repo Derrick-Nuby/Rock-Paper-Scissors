@@ -12,17 +12,22 @@ function getUserChoice() {
 
   if (userChoice.toLowerCase() === "rock") {
     console.log("rock");
-    return rock;
+    return "rock";
   } else if (userChoice.toLowerCase() === "paper") {
     console.log("paper");
-    return paper;
+    return "paper";
   } else if (userChoice.toLowerCase() === "scissors") {
     console.log("scissors");
-    return scissors;
+    return "scissors";
   } else {
     console.log("The biggest error you have ever made");
   }
 }
+playerSelection = getUserChoice();
+computerSelection = getComputerChoice();
 
-getComputerChoice();
-getUserChoice();
+console.log("the player selection is: ", playerSelection);
+console.log("the computer selection is: ", computerSelection);
+
+function playRound(playerSelection, computerSelection) {}
+playRound();
