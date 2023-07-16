@@ -1,9 +1,8 @@
-const arrayOfChoices = ["rock", "paper", "scissors"];
-
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
+  const arrayOfChoices = ["rock", "paper", "scissors"];
   //   console.log(arrayOfChoices[choice]);
-  return choice;
+  return arrayOfChoices[choice];
 }
 
 function getUserChoice() {
@@ -13,43 +12,40 @@ function getUserChoice() {
 
   if (userChoice.toLowerCase() === "rock") {
     // console.log("rock");
-    return 0;
+    return "rock";
   } else if (userChoice.toLowerCase() === "paper") {
     // console.log("paper");
-    return 1;
+    return "paper";
   } else if (userChoice.toLowerCase() === "scissors") {
     // console.log("scissors");
-    return 2;
+    return "scissors";
   } else {
     console.log("The biggest error you have ever made");
   }
 }
-let computerSelection = getComputerChoice();
 let playerSelection = getUserChoice();
+let computerSelection = getComputerChoice();
+
+console.log("the player selection is: ", playerSelection);
+console.log("the computer selection is: ", computerSelection);
+
 function playRound() {
-  if (playerSelection == computerSelection) {
-    console.log("The Values are equal play again");
-  } else if (playerSelection == 0 && computerSelection == 1) {
-    console.log("The computer wins because paper covers rock");
-  } else if (playerSelection == 0 && computerSelection == 2) {
-    console.log("The Human wins because rock crushes scissors");
-  } else if (playerSelection == 1 && computerSelection == 0) {
-    console.log("The human wins because paper covers rock");
-  } else if (playerSelection == 1 && computerSelection == 2) {
-    console.log("the computer wins because scissors cut paper");
-  } else if (playerSelection == 2 && computerSelection == 1) {
-    console.log("the human wins because scissors cut paper");
-  } else if (playerSelection == 2 && computerSelection == 1) {
-    console.log("computer wins because rock crushes scissors");
+  if (playerSelection === computerSelection) {
+    console.log("Oops Equal Values Play again");
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
+    console.log("The computer wins because the paper covers the rock");
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    console.log("The human wins because the rock crushes scissors");
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    console.log("The human wins because the paper covers the rock");
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    console.log("The computer wins because scissors cuts the paper");
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    console.log("The human wins because scissors cuts the paper");
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    console.log("The computer wins because the rock crushes the scissors");
   } else {
-    console.log("there is an error!");
+    console.log("there was some king of error");
   }
 }
-
-console.log(computerSelection);
-console.log(playerSelection);
-
-console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
-console.log("the player selection is: ", arrayOfChoices[playerSelection]);
-
 playRound();
