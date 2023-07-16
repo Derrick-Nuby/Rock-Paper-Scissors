@@ -1,8 +1,8 @@
+// first we define an array of all available choices; so rock stands for 0 in all the below code; paper for 1 and scissors for 2
 const arrayOfChoices = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
-  //   console.log(arrayOfChoices[choice]);
   return choice;
 }
 
@@ -12,13 +12,10 @@ function getUserChoice() {
   );
 
   if (userChoice.toLowerCase() === "rock") {
-    // console.log("rock");
     return 0;
   } else if (userChoice.toLowerCase() === "paper") {
-    // console.log("paper");
     return 1;
   } else if (userChoice.toLowerCase() === "scissors") {
-    // console.log("scissors");
     return 2;
   } else {
     console.log("The biggest error you have ever made");
@@ -56,9 +53,6 @@ function playRound() {
   console.log("The computer score is: ", computerScore);
   console.log("The human score is: ", humanScore);
 }
-
-// console.log(computerSelection);
-// console.log(playerSelection);
 
 console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
 console.log("the player selection is: ", arrayOfChoices[playerSelection]);
