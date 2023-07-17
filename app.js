@@ -1,6 +1,12 @@
 let userRock = document.getElementById("rock");
 let userPaper = document.getElementById("paper");
 let userScissors = document.getElementById("scissors");
+let humanScoreElement = document.querySelector(".htmlhumanscore");
+let computerScoreElement = document.querySelector(".htmlcomputerscore");
+let roundsCounter = document.querySelector(".rounds");
+let winnerTxt = document.querySelector(".winner");
+let notifications = document.querySelector(".notifications");
+let finalwinner = document.querySelector(".finalwinner");
 let computerSelection;
 let playerSelection;
 let humanScore = 0;
@@ -30,43 +36,52 @@ userScissors.addEventListener("click", function () {
 function playRound() {
   computerSelection = getComputerChoice();
   if (playerSelection == computerSelection) {
-    console.log("The Values are equal play again");
+    winnerTxt.textContent = "The Values are equal play again";
   } else if (playerSelection == 0 && computerSelection == 1) {
-    console.log("The computer wins because paper covers rock");
+    winnerTxt.textContent = "The computer wins because paper covers rock";
     computerScore++;
   } else if (playerSelection == 0 && computerSelection == 2) {
-    console.log("The Human wins because rock crushes scissors");
+    winnerTxt.textContent = "The Human wins because rock crushes scissors";
     humanScore++;
   } else if (playerSelection == 1 && computerSelection == 0) {
-    console.log("The human wins because paper covers rock");
+    winnerTxt.textContent = "The human wins because paper covers rock";
     humanScore++;
   } else if (playerSelection == 1 && computerSelection == 2) {
-    console.log("the computer wins because scissors cut paper");
+    winnerTxt.textContent = "the computer wins because scissors cut paper";
     computerScore++;
   } else if (playerSelection == 2 && computerSelection == 1) {
-    console.log("the human wins because scissors cut paper");
+    winnerTxt.textContent = "the human wins because scissors cut paper";
     humanScore++;
   } else if (playerSelection == 2 && computerSelection == 1) {
-    console.log("computer wins because rock crushes scissors");
+    winnerTxt.textContent = "computer wins because rock crushes scissors";
     computerScore++;
   } else {
-    console.log("there is an error!");
+    winnerTxt.textContent = "there is an error!";
   }
   roundsPlayed++;
   console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
   console.log("the player selection is: ", arrayOfChoices[playerSelection]);
-  console.log("The computer score is: ", computerScore);
-  console.log("The human score is: ", humanScore);
+  humanScoreElement.textContent = humanScore;
+  computerScoreElement.textContent = computerScore;
+  roundsCounter.textContent = roundsPlayed;
   if (roundsPlayed === maxRounds) {
+    notifications.innerHTML =
+      "The computer score is: " +
+      computerScore +
+      "<br>The human score is: " +
+      humanScore;
+
     endGame();
   }
 }
 function endGame() {
   if (humanScore > computerScore) {
-    console.log("The human wins the game!", humanScore);
+    finalwinner.innerHTML =
+      "The human wins the game! with: " + humanScore + " points";
   } else if (humanScore < computerScore) {
-    console.log("The computer wins the game!", computerScore);
+    finalwinner.innerHTML =
+      "The computer wins the game! with: " + computerScore + " points";
   } else {
-    console.log("It's a tie!");
+    finalwinner.innerHTML = "It's a tie!";
   }
 }
