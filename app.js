@@ -1,7 +1,10 @@
 let userRock = document.getElementById("rock");
 let userPaper = document.getElementById("paper");
 let userScissors = document.getElementById("scissors");
-
+let computerSelection;
+let playerSelection;
+let humanScore = 0;
+let computerScore = 0;
 // first we define an array of all available choices; so rock stands for 0 in all the below code; paper for 1 and scissors for 2
 const arrayOfChoices = ["rock", "paper", "scissors"];
 
@@ -21,28 +24,6 @@ userScissors.addEventListener("click", function () {
   playerSelection = 2;
   playRound();
 });
-
-// function getUserChoice() {
-//   let userChoice;
-//   userRock.addEventListener("click", function () {
-//     userChoice = 0;
-//     playRound();
-//   });
-//   userPaper.addEventListener("click", function () {
-//     userChoice = 1;
-//     playRound();
-//   });
-//   userScissors.addEventListener("click", function () {
-//     userChoice = 2;
-//     playRound();
-//   });
-//   return userChoice;
-// }
-
-let computerSelection;
-let playerSelection;
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound() {
   computerSelection = getComputerChoice();
