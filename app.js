@@ -1,3 +1,7 @@
+let userRock = document.getElementById("rock");
+let userPaper = document.getElementById("paper");
+let userScissors = document.getElementById("scissors");
+
 // first we define an array of all available choices; so rock stands for 0 in all the below code; paper for 1 and scissors for 2
 const arrayOfChoices = ["rock", "paper", "scissors"];
 
@@ -5,28 +9,43 @@ function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
   return choice;
 }
+userRock.addEventListener("click", function () {
+  playerSelection = 0;
+  playRound();
+});
+userPaper.addEventListener("click", function () {
+  playerSelection = 1;
+  playRound();
+});
+userScissors.addEventListener("click", function () {
+  playerSelection = 2;
+  playRound();
+});
 
-function getUserChoice() {
-  let userChoice = prompt(
-    "Enter your choice between: rock, paper and scissors"
-  );
+// function getUserChoice() {
+//   let userChoice;
+//   userRock.addEventListener("click", function () {
+//     userChoice = 0;
+//     playRound();
+//   });
+//   userPaper.addEventListener("click", function () {
+//     userChoice = 1;
+//     playRound();
+//   });
+//   userScissors.addEventListener("click", function () {
+//     userChoice = 2;
+//     playRound();
+//   });
+//   return userChoice;
+// }
 
-  if (userChoice.toLowerCase() === "rock") {
-    return 0;
-  } else if (userChoice.toLowerCase() === "paper") {
-    return 1;
-  } else if (userChoice.toLowerCase() === "scissors") {
-    return 2;
-  } else {
-    console.log("The biggest error you have ever made");
-  }
-}
-let computerSelection = getComputerChoice();
-let playerSelection = getUserChoice();
+let computerSelection;
+let playerSelection;
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound() {
-  let humanScore = 0;
-  let computerScore = 0;
+  computerSelection = getComputerChoice();
   if (playerSelection == computerSelection) {
     console.log("The Values are equal play again");
   } else if (playerSelection == 0 && computerSelection == 1) {
@@ -50,11 +69,8 @@ function playRound() {
   } else {
     console.log("there is an error!");
   }
+  console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
+  console.log("the player selection is: ", arrayOfChoices[playerSelection]);
   console.log("The computer score is: ", computerScore);
   console.log("The human score is: ", humanScore);
 }
-
-console.log("the computer selection is: ", arrayOfChoices[computerSelection]);
-console.log("the player selection is: ", arrayOfChoices[playerSelection]);
-
-playRound();
